@@ -12,7 +12,7 @@ config= ->(t) do
     def load_seed;load @path;end
   end
 
-  t.env = ENV["ENV"] || "development"
+  t.env = ENV["RACK_ENV"] || "development"
   t.database_configuration= YAML.load(ERB.new(File.read(conf)).result)
   t.db_dir=  File.join root, 'db'
   # t.fixtures_path= File.join root, "test/fixtures"
