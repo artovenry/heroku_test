@@ -1,0 +1,15 @@
+development:
+  adapter: mysql2
+  pool: 5
+  database: heroku_test
+  host: localhost
+  username: root
+  collation: utf8_general_ci
+  encoding: utf8
+  charset: utf8
+
+staging:
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>

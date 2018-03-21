@@ -1,13 +1,79 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.1.5)
+      activesupport (= 5.1.5)
+    activerecord (5.1.5)
+      activemodel (= 5.1.5)
+      activesupport (= 5.1.5)
+      arel (~> 8.0)
+    activesupport (5.1.5)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    arel (8.0.0)
+    backports (3.11.1)
+    coderay (1.1.2)
+    concurrent-ruby (1.0.5)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
+    logger (1.2.8)
+    method_source (0.9.0)
+    minitest (5.11.3)
+    multi_json (1.13.1)
+    mustermann (1.0.2)
+    mysql2 (0.3.21)
+    pg (1.0.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     rack (2.0.4)
+    rack-protection (2.0.1)
+      rack
+    rack-test (0.8.3)
+      rack (>= 1.0, < 3)
+    racksh (1.0.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+    rake (12.3.0)
+    sinatra (2.0.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.1)
+      tilt (~> 2.0)
+    sinatra-contrib (2.0.1)
+      backports (>= 2.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.0.1)
+      sinatra (= 2.0.1)
+      tilt (>= 1.3, < 3)
+    sinatra-cross_origin (0.4.0)
+    thor (0.20.0)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  rack
+  activerecord
+  logger
+  mysql2 (~> 0.3.20)
+  pg
+  pry
+  racksh
+  rake
+  sinatra
+  sinatra-contrib
+  sinatra-cross_origin
+  thor
+
+RUBY VERSION
+   ruby 2.4.3p205
 
 BUNDLED WITH
-   1.15.4
+   1.16.1

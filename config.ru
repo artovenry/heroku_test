@@ -1,14 +1,6 @@
-use Rack::Static,
-  :urls => ["/images", "/js", "/css"],
-  :root => "public"
+root= File.expand_path "..", __FILE__
+require "#{root}/application_base.rb"
+require "#{root}/models.rb"
+require "#{root}/application.rb"
 
-run lambda { |env|
-  [
-    200,
-    {
-      'Content-Type'  => 'text/html',
-      'Cache-Control' => 'public, max-age=86400'
-    },
-    File.open('public/index.html', File::RDONLY)
-  ]
-}
+map("/") {run Application}
