@@ -22,6 +22,7 @@ class Application < ApplicationBase
     json response: {
       status: verify_recaptcha(response: @body[:recaptcha].to_s) ?  :success : :fail,
       data: {hoge: "boo"},
+      debug: @body[:recaptcha].to_s
     }
   end
 

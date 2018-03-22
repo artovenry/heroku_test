@@ -9,7 +9,7 @@ html(lang="ja")
       :coffee-script
         request= ->
           axios.post "https://herokuuuuu-test.herokuapp.com/",
-            "g-recaptcha-response" : grecaptcha.getResponse()
+            recaptcha: grecaptcha.getResponse()
           .then (rs)->console.log rs
         validate= ->
           text= document.querySelector("#text").value
