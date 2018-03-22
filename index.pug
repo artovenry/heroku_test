@@ -11,11 +11,13 @@ html(lang="ja")
           axios.post "https://herokuuuuu-test.herokuapp.com/",
             "g-recaptcha-response" : grecaptcha.getResponse()
           .then (rs)->console.log rs
+        validate= ->
+          text= document.querySelector("#text").value
+          text is "hello"
           
         document.addEventListener "DOMContentLoaded", ->
           document.querySelector("#button").addEventListener "click", ->
-            console.log text= document.querySelector("#text").value
-            console.log grecaptcha.getResponse() if text is "hello"
+            if validate() then request()
         #axios.get "https://herokuuuuu-test.herokuapp.com/"0
         #.then (rs)->console.log rs
   body
