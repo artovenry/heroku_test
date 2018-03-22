@@ -36,15 +36,16 @@ class ApplicationBase < Sinatra::Base
   end
 
 
-  # if settings.development?
-  #   options "*" do
-  #     response.headers["Access-Control-Allow-Origin"] = "*"
-  #     response.headers["Access-Control-Allow-Credentials"] = "true"
-  #     response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
-  #     response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
-  #     200
-  #   end
-  # end
+  if settings.development?
+    options "*" do
+      # response.headers["Access-Control-Allow-Origin"] = "*"
+      response.headers["Access-Control-Allow-Credentials"] = "true"
+      response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+      response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+      200
+    end
+  end
+
   root= File.expand_path "..", __FILE__
   config= YAML.load(ERB.new(File.read(File.join(root, "database.yml"))).result)
   ActiveRecord::Base.configurations= config
