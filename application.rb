@@ -16,4 +16,11 @@ class Application < ApplicationBase
     }
   end
 
+  post "/" do
+    json response: {
+      status: :success,
+      data: {hoge: "boo"}
+    }
+
+
 end

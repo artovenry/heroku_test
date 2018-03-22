@@ -6,6 +6,8 @@ html(lang="ja")
     script(src="//unpkg.com/axios@0.18.0/dist/axios.min.js")
     script
       :coffee-script
-        axios.get "https://herokuuuuu-test.herokuapp.com/"
+        #axios.get "https://herokuuuuu-test.herokuapp.com/"
+        #.then (rs)->console.log rs
+        axios.post "https://herokuuuuu-test.herokuapp.com/"
         .then (rs)->console.log rs
   body
