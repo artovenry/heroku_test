@@ -20,7 +20,7 @@ class Application < ApplicationBase
 
   post "/" do
     json response: {
-      status: if verify_recaptcha then :success else :fail,
+      status: verify_recaptcha ?  :success : :fail,
       data: {hoge: "boo"}
     }
   end

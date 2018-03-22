@@ -13,7 +13,7 @@ class ApplicationBase < Sinatra::Base
   Recaptcha.configure do |config|
     config.site_key= ENV["RECAPTCHA_SITE_KEY"] || "recaptcha_site_key"
     config.secret_key= ENV["RECAPTCHA_SECRET_KEY"] || "recaptcha_secret_key"
-    config.skip_verify_env.add("development")
+    config.skip_verify_env<<("development")
   end
 
   configure :development do
