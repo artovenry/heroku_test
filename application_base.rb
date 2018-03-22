@@ -9,25 +9,27 @@ require "active_record"
 class ApplicationBase < Sinatra::Base
   set :environments, %w{development test production staging}
 
-  configure :development, :staging do
+  configure :development do
     require "sinatra/reloader"
     register Sinatra::Reloader
-
-    # require "sinatra/cross_origin"
-    # register Sinatra::CrossOrigin
-    # enable  :cross_origin
-
-
-  end
-
-  configure :development do
-    # disable :protection
-
+    require "sinatra/cross_origin"
+    register Sinatra::CrossOrigin
+    enable  :cross_origin
+    disable :protection
     # logfile= File.join(root, "log/db.log")
     # ActiveRecord::Base.logger = Logger.new(logfile)
     ActiveRecord::Base.logger = Logger.new(STDOUT)
+  end
+
+  configure :staging do
+    require "sinatra/cross_origin"
+    register Sinatra::CrossOrigin
+    enable  :cross_origin
+    set :allow_origin, "http://test.artovenry.com"
 
   end
+
+
   # if settings.development?
   #   options "*" do
   #     response.headers["Access-Control-Allow-Origin"] = "*"
