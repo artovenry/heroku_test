@@ -39,5 +39,6 @@ namespace :app do
       def sample; where( 'id >= ?', rand(first.id..last.id) ).first;end
     end
     puts Item.sample.name
+    puts Item.sample.created_at.to_formatted_s(:db)
   end
 end
