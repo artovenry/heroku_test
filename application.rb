@@ -21,6 +21,7 @@ class Application < ApplicationBase
       status: :success,
       data: {hoge: "boo"}
     }
+  end
 
 
 end
