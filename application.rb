@@ -7,4 +7,13 @@ class Application < ApplicationBase
     end
   end
 
+  get "/" do
+    json response: {
+      status: :success,
+      data: {
+        items: Item.all
+      }
+    }
+  end
+
 end
