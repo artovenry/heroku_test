@@ -9,13 +9,13 @@ gem "sinatra-contrib"
 gem 'activerecord'
 gem "rake"
 gem "logger"
+gem "sinatra-cross_origin"
 
 group :development do
   gem "mysql2", "~> 0.3.20"
   gem "pry"
   gem "thor"
   gem "racksh"
-  gem "sinatra-cross_origin"
 end
 
 group :staging do
