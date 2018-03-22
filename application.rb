@@ -20,9 +20,8 @@ class Application < ApplicationBase
 
   post "/" do
     json response: {
-      status: verify_recaptcha ?  :success : :fail,
+      status: verify_recaptcha(response: @body[:recaptcha].to_s) ?  :success : :fail,
       data: {hoge: "boo"},
-      token: params['g-recaptcha-response']
     }
   end
 
