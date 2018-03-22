@@ -4,10 +4,21 @@ html(lang="ja")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
     script(src="//unpkg.com/axios@0.18.0/dist/axios.min.js")
+    script(src="https://www.google.com/recaptcha/api.js" async defer)        
     script
       :coffee-script
-        #axios.get "https://herokuuuuu-test.herokuapp.com/"
+        request= ->
+          axios.post "https://herokuuuuu-test.herokuapp.com/",
+            "g-recaptcha-response" : grecaptcha.getResponse()
+          .then (rs)->console.log rs
+          
+        document.addEventListener "DOMContentLoaded", ->
+          document.querySelector("#button").addEventListener "click", ->
+            console.log text= document.querySelector("#text").value
+            console.log grecaptcha.getResponse() if text is "hello"
+        #axios.get "https://herokuuuuu-test.herokuapp.com/"0
         #.then (rs)->console.log rs
-        axios.post "https://herokuuuuu-test.herokuapp.com/"
-        .then (rs)->console.log rs
   body
+    input#text(type="text")
+    input#button(type="button" value="click")
+    .g-recaptcha#recaptcha(data-size="compact" data-sitekey="6LfqMU4UAAAAAM3RGDSQm1nUbPjGMPrigBlpvjo0")

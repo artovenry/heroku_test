@@ -10,6 +10,7 @@ gem 'activerecord'
 gem "rake"
 gem "logger"
 gem "sinatra-cross_origin"
+gem "recaptcha"
 
 group :development do
   gem "mysql2", "~> 0.3.20"

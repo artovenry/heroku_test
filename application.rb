@@ -1,3 +1,5 @@
+include Recaptcha::Verify
+
 class Application < ApplicationBase
   set :show_exceptions, :after_handler
   before do
@@ -18,7 +20,7 @@ class Application < ApplicationBase
 
   post "/" do
     json response: {
-      status: :success,
+      status: if verify_recaptcha then :success else :fail,
       data: {hoge: "boo"}
     }
   end

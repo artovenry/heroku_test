@@ -1,7 +1,23 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><script src="//unpkg.com/axios@0.18.0/dist/axios.min.js"></script><script>(function() {
-  axios.post("https://herokuuuuu-test.herokuapp.com/").then(function(rs) {
-    return console.log(rs);
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><script src="//unpkg.com/axios@0.18.0/dist/axios.min.js"></script><script src="https://www.google.com/recaptcha/api.js" async defer>       </script><script>(function() {
+  var request;
+
+  request = function() {
+    return axios.post("https://herokuuuuu-test.herokuapp.com/", {
+      "g-recaptcha-response": grecaptcha.getResponse()
+    }).then(function(rs) {
+      return console.log(rs);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", function() {
+    return document.querySelector("#button").addEventListener("click", function() {
+      var text;
+      console.log(text = document.querySelector("#text").value);
+      if (text === "hello") {
+        return console.log(grecaptcha.getResponse());
+      }
+    });
   });
 
 }).call(this);
-</script></head><body></body></html>
+</script></head><body><input id="text" type="text"><input id="button" type="button" value="click"><div class="g-recaptcha" id="recaptcha" data-size="compact" data-sitekey="6LfqMU4UAAAAAM3RGDSQm1nUbPjGMPrigBlpvjo0"></div></body></html>
