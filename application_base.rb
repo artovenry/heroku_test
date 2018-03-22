@@ -25,7 +25,7 @@ class ApplicationBase < Sinatra::Base
     require "sinatra/cross_origin"
     register Sinatra::CrossOrigin
     enable  :cross_origin
-    set :allow_origin, "http://test.artovenry.com"
+    set :allow_origin, "http://test2.artovenry.com"
 
   end
 
