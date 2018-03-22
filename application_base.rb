@@ -13,9 +13,9 @@ class ApplicationBase < Sinatra::Base
     require "sinatra/reloader"
     register Sinatra::Reloader
 
-    require "sinatra/cross_origin"
-    register Sinatra::CrossOrigin
-    enable  :cross_origin
+    # require "sinatra/cross_origin"
+    # register Sinatra::CrossOrigin
+    # enable  :cross_origin
 
 
   end
