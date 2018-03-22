@@ -22,6 +22,7 @@ class Application < ApplicationBase
     json response: {
       status: verify_recaptcha ?  :success : :fail,
       data: {hoge: "boo"}
+      token: params['g-recaptcha-response']
     }
   end
 
