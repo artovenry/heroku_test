@@ -3,7 +3,7 @@
 
   request = function() {
     return axios.post("https://herokuuuuu-test.herokuapp.com/", {
-      "g-recaptcha-response": grecaptcha.getResponse()
+      recaptcha: grecaptcha.getResponse()
     }).then(function(rs) {
       return console.log(rs);
     });
