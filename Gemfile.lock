@@ -19,7 +19,7 @@ GEM
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
-    logger (1.2.8)
+    logger (1.4.2)
     method_source (0.9.0)
     minitest (5.11.3)
     multi_json (1.13.1)
@@ -37,7 +37,7 @@ GEM
     racksh (1.0.0)
       rack (>= 1.0)
       rack-test (>= 0.5)
-    rake (12.3.1)
+    rake (13.0.1)
     recaptcha (4.6.6)
       json
     sinatra (2.0.1)
